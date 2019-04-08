@@ -13,14 +13,15 @@ public class ViewResolverServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String uri = request.getRequestURI();
+		response.setContentType("text/html;charset=utf-8");
+		response.setCharacterEncoding("utf-8");
 		uri = "/WEB-INF" + uri + ".jsp";
-		System.out.println(uri);
 		RequestDispatcher rd = request.getRequestDispatcher(uri);
 		rd.forward(request, response);
-	}
+	} 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		doGet(request, response);
 	}
-
 }
